@@ -3,11 +3,12 @@ ALUNOS: LUCAS TEIXEIRA DE SOUZA - 221017041
 
 O trabalho foi feito em c++ no sistema Linux Ubuntu versão 20.04.
 
-Para compilar os arquvios montador.cpp e ligador.cpp deve-se estar dentro do diretório /src e usar os comandos: 
+Para compilar os arquvios montador.cpp e ligador.cpp deve-se estar dentro do diretório /MONTADOR ou /LIGADOR e usar os comandos: 
 
-gcc montador.cpp -o montador -lstdc++ ou g++ montador.cpp -o montador
-gcc ligador.cpp -o ligador -lstdc++ ou g++ ligador.cpp -o ligador
+gcc montador.cpp -o montado -lstdc++ ou g++ montador.cpp -o montado em /MONTADOR para compilar o arquivo do montador
 
-para rodar os arquivos, basta usar ./montador teste.asm ou teste.pre e ./ligador teste.obj teste_1.obj
+gcc ligador.cpp -o ligado -lstdc++ ou g++ ligador.cpp -o ligado em /LIGADOR para compilar o arquivo do ligador
 
-PS: os arquivos que você quer processar/montar/ligar devem estar nas devidas pastas
+para rodar os arquivos, basta usar ./montado teste_4.asm ou teste_4.pre ou ./ligador teste_1.obj teste_2.obj
+
+PS: os arquivos que você quer processar/montar/ligar devem estar nas devidas pastas (teste_asm para arquivos .asm, teste_pre para arquivos.pre, etc...)
