@@ -16,19 +16,28 @@ bool tem_modulo = false;
 
 std::string retorna_decimal(const std::string& num) {
     // REGEX QUE VERIFICA SE UM NÚMERO É HEXADECIMAL
-    std::regex hex_regex("^(?0X[0-9A-Fa-f]+)$");
+    std::regex hex_regex("^(0X[0-9A-F]+)$"); 
     std::smatch match;
 
     if (std::regex_match(num, match, hex_regex)) {
-        // Remove o prefixo '0x' ou '-0x' ou '+0x'
-        std::string hex_value = match.str(1).substr(2); // Pega apenas o número hexadecimal
+        // Remove o prefixo '0X'
+        std::string hex_value = num.substr(2); // Pega apenas o número hexadecimal
         
-        // Converte hexadecimal para decimal
-        int decimalValue = std::stoi(hex_value, nullptr, 16);
+        // Converte hexadecimal para inteiro sem sinal (usando std::stoul)
+        unsigned int value = std::stoul(hex_value, nullptr, 16);
 
-        return std::to_string(decimalValue);
+        // Define o número de bits pelo comprimento do hexadecimal
+        size_t num_bits = hex_value.length() * 4; // Cada dígito hexadecimal representa 4 bits
+
+        // Se o número estiver no intervalo negativo em complemento de 2
+        if (value >= (1U << (num_bits - 1))) {
+            int signed_value = static_cast<int>(value - (1U << num_bits));
+            return std::to_string(signed_value);
+        } else {
+            return std::to_string(static_cast<int>(value));
+        }
     } else {
-        return num; 
+        return num; // Retorna o número original se não for hexadecimal
     }
 }
 
