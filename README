@@ -9,12 +9,10 @@ gcc montador.cpp -o montado -lstdc++ ou g++ montador.cpp -o montado em /MONTADOR
 
 gcc ligador.cpp -o ligado -lstdc++ ou g++ ligador.cpp -o ligado em /LIGADOR para compilar o arquivo do ligador
 
-para rodar os arquivos, basta usar ./montado teste_4.asm ou teste_4.pre ou ./ligador teste_1.obj teste_2.obj
+para rodar os arquivos, basta usar ./montado teste_4.asm ou teste_4.pre ou ./ligador teste_7.obj teste_8.obj
 
-PS: os arquivos que você quer processar/montar/ligar devem estar nas devidas pastas 
-    (teste_asm para arquivos .asm, teste_pre para arquivos.pre, etc...)
+PS: os arquivos que você quer processar/montar/ligar devem estar nas devidas pastas (teste_asm para arquivos .asm, teste_pre para arquivos.pre, etc...)
 
-2° PS: A primeira versão deste montador (https://github.com/Luks715/Montador-de-Assembly.git) foi feita seguindo a sintaxe do Assembly inventado dos slides,
-       ou seja, MOD1: BEGIN ao invés de BEGIN: MOD1, SECTION DATA dentro do módulo ao invés de após o END, etc...
-       Tenho trabalho de outras matérias para fazer, então para economizar tempo, alterei apenas o pré-processamento para seguir a sintaxe correta, mas o
-       arquivo .pre gerado se encontra na sintaxe original dos slides, para que eu possa reutilizar o meu programa de montagem sem problemas.
+2° PS: A primeira versão deste montador (https://github.com/Luks715/Montador-de-Assembly.git) foi feita seguindo a sintaxe do Assembly inventado dos slides, ou seja, MOD1: BEGIN ao invés de BEGIN: MOD1, SECTION DATA dentro do módulo ao invés de após o END, etc... Descobri apenas no dia 13/01/2025 que a sintaxe correta é a dos exemplos e a não a dos slides, e como tenho trabalho de outras matérias para fazer, alterei apenas o pré-processamento para seguir a sintaxe correta, mas o arquivo .pre irá ser gerado na sintaxe original dos slides, para que eu possa reutilizar o meu programa de montagem da primeira versão do trabalho.
+
+3° PS: Aritmética de ponteiros deve ser feita sem espaços, por exemplo, NUM+1, R+2, ao invés de NUM + 1, R + 2.
