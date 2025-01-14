@@ -11,9 +11,7 @@ gcc ligador.cpp -o ligado -lstdc++ ou g++ ligador.cpp -o ligado em /LIGADOR para
 
 Alternativamente, rode
 
-```
- make run 
-```
+- make run 
 
 para compilar ambos para os arquivos Montador e Ligador
 
