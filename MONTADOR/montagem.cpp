@@ -16,7 +16,7 @@ bool tem_modulo = false;
 
 std::string retorna_decimal(const std::string& num) {
     // REGEX QUE VERIFICA SE UM NÚMERO É HEXADECIMAL
-    std::regex hex_regex("^(0X[0-9A-F]+)$"); 
+    std::regex hex_regex("^(0X[0-9A-F]{1,4})$"); 
     std::smatch match;
 
     if (std::regex_match(num, match, hex_regex)) {
@@ -94,7 +94,7 @@ pair<string, string> operando_valido(string operando_recebido, string linha) {
 
 // FUNÇÃO PRINCIPAL QUE LÊ TODAS AS LINHAS DE UM ARQUIVO .PRE, REALIZA O ALGORITMO DE DUAS PASSAGENS E RETORNA O ARQUIVO .OBJ
 void montagem(string arquivo_pre_nome) {
-    string caminho_arquivo_pre = "../teste_pre/" + arquivo_pre_nome;
+    string caminho_arquivo_pre = "../arquivos_pre/" + arquivo_pre_nome;
 
     ifstream inputFile(caminho_arquivo_pre); 
     if (!inputFile.is_open()) {
@@ -103,7 +103,7 @@ void montagem(string arquivo_pre_nome) {
     }
 
     string arquivo_obj_nome = regex_replace(arquivo_pre_nome, regex("\\.pre$"), ".obj");
-    string caminho_arquivo_obj = "../teste_obj/" + arquivo_obj_nome;
+    string caminho_arquivo_obj = "../arquivos_obj/" + arquivo_obj_nome;
     
     // VERIFICA SE O ARQUIVO DE SAÍDA FOI CRIADO
     ofstream outputFile(caminho_arquivo_obj); 

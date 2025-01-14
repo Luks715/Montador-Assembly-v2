@@ -42,7 +42,7 @@ std::vector<std::string> divide_string(const std::string& str) {
 
 void ligamento(const std::vector<std::string>& arquivos){
     for(int i = 0; i < arquivos.size(); i++){
-        string caminho_arquivo_obj = "../teste_obj/" + arquivos[i];
+        string caminho_arquivo_obj = "../arquivos_obj/" + arquivos[i];
 
         ifstream inputFile(caminho_arquivo_obj); 
         if (!inputFile.is_open()) {
@@ -118,7 +118,7 @@ void ligamento(const std::vector<std::string>& arquivos){
     }
 
     string arquivo_e_nome = regex_replace(arquivos[0], regex("\\.obj$"), ".e");
-    string caminho_arquivo_e = "../teste_e/" + arquivo_e_nome;
+    string caminho_arquivo_e = "../arquivos_e/" + arquivo_e_nome;
     
     // VERIFICA SE O ARQUIVO DE SAÍDA FOI CRIADO
     ofstream outputFile(caminho_arquivo_e); 

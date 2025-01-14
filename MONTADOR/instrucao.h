@@ -85,15 +85,23 @@ bool processa_diretiva(Instrucao instrucao) {
             }
             return true;
         } else if (instrucao.operacao == "CONST"){
-            regex operando_const_regex("^(0X[0-9A-F]+|-?[0-9]+)$");
+            regex operando_const_regex("^(0X[0-9A-F]{1,4}|-?[0-9]+)$");
 
             if(regex_match(instrucao.operando1, operando_const_regex)) {
                 return true;
             } else {
                 string linha = instrucao.operacao + " " + instrucao.operando1;
-
                 cerr << linha << endl;
-                cerr << "ERRO SEMÂNTICO: O TIPO ESPERADO PARA O ARGUMENTO ERA NUMÉRICO EM DECIMAL OU HEXADECIMAL EM COMPLEMENTO DE 2: " << linha << endl;
+
+                if (instrucao.operando1.find("0X") != std::string::npos) {
+                    if (instrucao.operando1.find("-0X") != std::string::npos) {
+                        cerr << "ERRO SEMÂNTICO: O  ARGUMENTO EM HEXADECIMAL DEVE ESTAR EM COMPLEMENTO DE 2: " << linha << endl;
+                    } else {
+                        cerr << "ERRO SEMÂNTICO: O  ARGUMENTO EM HEXADECIMAL DEVE TER NO MÁXIMO 16 BITS: " << linha << endl;
+                    }
+                } else {
+                    cerr << "ERRO SEMÂNTICO: O TIPO ESPERADO PARA O ARGUMENTO É NUMÉRICO: " << linha << endl;
+                }
                 return false;
             }
         } else {

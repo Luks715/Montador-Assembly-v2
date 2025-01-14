@@ -224,7 +224,7 @@ void processa_linha(string linha, Instrucao instrucao, ifstream& inputFile, ofst
 
 // FUNÇÃO PRINCIPAL QUE LÊ TODO O ARQUIVO .ASM E RETORNA O ARQUIVO .PRE
 void pre_processamento(string arquivo_asm_nome) {
-    string caminho_arquivo_asm = "../teste_asm/" + arquivo_asm_nome;  
+    string caminho_arquivo_asm = "../arquivos_asm/" + arquivo_asm_nome;  
 
     // Verifica se o arquivo .asm existe
     ifstream inputFile(caminho_arquivo_asm); 
@@ -234,7 +234,7 @@ void pre_processamento(string arquivo_asm_nome) {
     }
 
     string arquivo_pre_nome = regex_replace(arquivo_asm_nome, regex("\\.asm$"), ".pre");
-    string caminho_arquivo_pre = "../teste_pre/" + arquivo_pre_nome;
+    string caminho_arquivo_pre = "../arquivos_pre/" + arquivo_pre_nome;
     
     // Verifica se o arquivo de saída foi criado
     ofstream outputFile(caminho_arquivo_pre); 
