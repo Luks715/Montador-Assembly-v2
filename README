@@ -9,6 +9,14 @@ gcc montador.cpp -o montado -lstdc++ ou g++ montador.cpp -o montado em /MONTADOR
 
 gcc ligador.cpp -o ligado -lstdc++ ou g++ ligador.cpp -o ligado em /LIGADOR para compilar o arquivo do ligador
 
+Alternativamente, rode
+
+```
+ make run 
+```
+
+para compilar ambos para os arquivos Montador e Ligador
+
 para rodar os arquivos, basta usar ./montado teste_4.asm ou teste_4.pre ou ./ligador teste_7.obj teste_8.obj
 
 PS: os arquivos que você quer processar/montar/ligar devem estar nas devidas pastas (teste_asm para arquivos .asm, teste_pre para arquivos.pre, etc...)
