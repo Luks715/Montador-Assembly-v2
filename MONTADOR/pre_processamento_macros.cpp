@@ -24,6 +24,7 @@ bool tem_modulo_aberto = false;
 bool modulo_finalizado = true;
 bool ja_existe_modulo = false;
 
+bool ja_existe_macro = false;
 bool tem_macro_aberta = false;
 bool macro_finalizada = true;
 
@@ -65,6 +66,10 @@ void processa_linha(string linha, Instrucao instrucao, ifstream& inputFile, ofst
                 if (ja_existe_modulo) {
                     cout << linha << endl;
                     cerr << "ERRO SINTÁTICO: INICIAR MAIS DE UM MÓDULO NO MESMO ARQUIVO" << linha << endl;
+                
+                } else if (ja_existe_macro) {
+                    cout << linha << endl;
+                    cerr << "ERRO SINTÁTICO: INICIAR UMA MACRO FORA DO MÓDULO" << linha << endl;
 
                 } else {
                     if (instrucao.operacao.empty()) {
@@ -144,6 +149,7 @@ void processa_linha(string linha, Instrucao instrucao, ifstream& inputFile, ofst
                             } else {
                                 if (MDT.size() < 2) {
                                     if (MDT.find(instrucao.rotulo) == MDT.end()) {
+                                        ja_existe_macro = true;
                                         tem_macro_aberta = true;
                                         macro_finalizada = false;
                                         cerr << "Uma macro está sendo adicionada com o rótulo " << instrucao.rotulo << endl;
