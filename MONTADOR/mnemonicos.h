@@ -20,7 +20,9 @@ map<string, pair<bool, int>> diretivas = {
     {"PUBLIC"   ,{false, 1}},
     {"EXTERN"   ,{true,  0}},
     {"SPACE"    ,{true,  1}},
-    {"CONST"    ,{true,  1}}
+    {"CONST"    ,{true,  1}},
+    {"MACRO"    ,{true,  0}},
+    {"ENDMACRO" ,{false, 0}}
 };
 
 // MAP CONTENDO TODAS AS INSTRUÇÕES VÁLIDAS DO PROGRAMA, SEUS OPCODES, E A QUANTIDADE DE ESPAÇO QUE OCUPAM NA MEMÓRIA

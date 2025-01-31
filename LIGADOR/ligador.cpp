@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "LIGADOR/ligamento.cpp"
+#include "ligar.cpp"
 
 // FUNÇÃO MAIN DO LIGADOR, RECEBE OS NOMES DOS ARQUIVOS E CHAMA A FUNÇÃO LIGAMENTO EM src/LIGADOR/ligamento.cpp
 int main(int argc, char* argv[]) {

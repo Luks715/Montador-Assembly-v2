@@ -3,8 +3,8 @@
 #include <string>
 #include <regex>
 #include <cstdlib>
-#include "pre_processamento.cpp"
-#include "montagem.cpp"
+#include "pre_processamento_macros.cpp"
+#include "montar.cpp"
 
 using namespace std;
 
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     string arquivo_nome = argv[1];
 
     if (regex_match(arquivo_nome, regex(".*\\.asm$"))) {
-        pre_processamento(arquivo_nome);
+        pre_processamento_macros(arquivo_nome);
     } else if (regex_match(arquivo_nome, regex(".*\\.pre$"))) {
         montagem(arquivo_nome);
     } else {
